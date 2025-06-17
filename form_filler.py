@@ -2,7 +2,7 @@ from playwright.async_api import async_playwright
 
 async def fill_form():
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=False, args=["--no-sandbox"])
         page = await browser.new_page()
         await page.goto('https://www.beisbolplay.com/afiliados')
         await page.fill('input[name="your-name"]', 'nombre de ejemplo')
